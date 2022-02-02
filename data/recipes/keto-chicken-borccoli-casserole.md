@@ -1,0 +1,28 @@
+---
+title: 'Keto Chicken Broccoli Casserole'
+prepTime: '10 minutes'
+cookTime: '15 minutes'
+servings: '1 fucking casserole duh'
+description: 'This low carb casserole is extra cheesy and packed with chicken. Our family loves it for a quick weeknight dinner.'
+tags: ['keto', 'chicken', 'broccoli', 'cheddar']
+---
+
+Ingredients
+
+- 8 ounces cream cheese, room temperature
+- 0.25 cup mayonnaise
+- 2 cup shredded cheddar
+- 1 tsp garlic powder
+- 2 tsp ground black pepper
+- 3 tsp salt
+- 3 cups pulled chicken
+- 3 cups broccoli
+- 2 cups parmesan
+
+Instructions
+
+1. Preheat oven to 350 degrees.
+1. Steam broccoli
+1. Stir cream cheese, cheddar cheese, and chicken into the steamed broccoli until well combined.
+1. Transfer broccoli to a 9x13 baking dish and sprinkle the parmesan over the top.
+1. Bake for 15 minutes.

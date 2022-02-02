@@ -1,47 +1,47 @@
 import fs from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
+import { RecipeCardProps, RecipeProps } from '../types/recipe'
 
-const postsDirectory = join(process.cwd(), '_posts')
+const recipesDirectory = join(process.cwd(), 'data', 'recipes')
 
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory)
+export function getRecipeSlugs() {
+  return fs.readdirSync(recipesDirectory)
 }
 
-export function getPostBySlug(slug: string, fields: string[] = []) {
+export function getRecipeBySlug(
+  slug: string,
+  fields: string[] = []
+): { [key: string]: string | null } {
   const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(postsDirectory, `${realSlug}.md`)
+  const fullPath = join(recipesDirectory, `${realSlug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
-  type Items = {
-    [key: string]: string
-  }
-
-  const items: Items = {}
+  const recipe: { [key: string]: string | null } = {}
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
     if (field === 'slug') {
-      items[field] = realSlug
-    }
-    if (field === 'content') {
-      items[field] = content
+      recipe[field] = realSlug
+    } else if (field === 'content') {
+      recipe[field] = content
+    } else {
+      recipe[field] = data[field]
     }
 
-    if (typeof data[field] !== 'undefined') {
-      items[field] = data[field]
+    if (data[field] === undefined && field !== 'slug' && field !== 'content') {
+      recipe[field] = null
     }
   })
 
-  return items
+  return recipe
 }
 
-export function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs()
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-  return posts
+export function getAllRecipes(
+  fields: string[] = []
+): RecipeProps[] | RecipeCardProps[] {
+  const slugs = getRecipeSlugs()
+  const recipes = slugs.map((slug) => getRecipeBySlug(slug, fields))
+  return recipes as RecipeProps[] | RecipeCardProps[]
 }
