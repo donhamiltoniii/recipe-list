@@ -10,10 +10,9 @@ type BodyProps = {
 
 const Body = ({ content }: BodyProps) => {
   return (
-    <div
-      className={styles['__body']}
-      dangerouslySetInnerHTML={{ __html: content }}
-    />
+    <div className={styles['recipe__body']}>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
+    </div>
   );
 };
 
@@ -22,8 +21,9 @@ type FooterProps = {
 };
 
 const Footer = ({ tags }: FooterProps) => (
-  <footer className={styles['__footer']}>
-    <ul>
+  <footer className={styles['recipe__footer']}>
+    <h4 className={styles['recipe__tags-title']}>Tags</h4>
+    <ul className={styles['recipe__tags-list']}>
       {tags.map((tag: string) => (
         <li key={tag}>{tag}</li>
       ))}
@@ -47,14 +47,20 @@ const Header = ({
   title,
 }: HeaderProps) => {
   return (
-    <div className={styles['__header']}>
-      <h2 className={styles['__title']}>{title}</h2>
-      <section className={styles['__times']}>
-        <small className={styles['__prep-time']}>Prep time: {prepTime}</small>
-        <small className={styles['__cook-time']}>Cook time: {cookTime}</small>
+    <div className={styles['recipe__header']}>
+      <h2 className={styles['recipe__title']}>{title}</h2>
+      <section className={styles['recipe__times']}>
+        <small className={styles['recipe__prep-time']}>
+          Prep time: {prepTime}
+        </small>
+        <small className={styles['recipe__cook-time']}>
+          Cook time: {cookTime}
+        </small>
       </section>
-      <small className={styles['__servings']}>Servings: {servings}</small>
-      <blockquote className={styles['__description']}>{description}</blockquote>
+      <small className={styles['recipe__servings']}>Servings: {servings}</small>
+      <blockquote className={styles['recipe__description']}>
+        {description}
+      </blockquote>
     </div>
   );
 };

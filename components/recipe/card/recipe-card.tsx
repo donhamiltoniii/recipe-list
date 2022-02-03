@@ -1,16 +1,20 @@
-import Link from 'next/link'
+// Components
+import Link from 'next/link';
+
+// Styles
+import styles from './recipe-card.module.scss';
 
 interface Props {
-  slug: string
-  title: string
+  slug: string;
+  title: string;
 }
 
 export const RecipeCard = ({ slug, title }: Props) => {
   return (
-    <div>
-      <h3>
-        <Link href={`/recipes/${slug}`}>{title}</Link>
-      </h3>
+    <div className={styles['recipe-card']}>
+      <Link href={`/recipes/${slug}`}>
+        <h3>{title}</h3>
+      </Link>
     </div>
-  )
-}
+  );
+};

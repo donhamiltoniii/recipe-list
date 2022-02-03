@@ -1,0 +1,11 @@
+.header {
+  margin-bottom: 1rem;
+  padding: 1rem;
+
+  &__title {
+    cursor: pointer;
+    font-family: 'Permanent Marker', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+  }
+}

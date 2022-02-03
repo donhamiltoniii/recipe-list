@@ -1,5 +1,5 @@
 // Components
-import { RecipeCard } from '../components/recipe/card/recipe-card';
+import { RecipeList } from '../components/recipe/list/recipe-list';
 
 // Types
 import { RecipeCardProps } from '../types/recipe';
@@ -12,16 +12,17 @@ interface Props {
 }
 
 const Index = ({ allRecipes }: Props) => {
-  return allRecipes.map((recipe: RecipeCardProps) => (
-    <RecipeCard key={recipe.slug} title={recipe.title} slug={recipe.slug} />
-  ));
+  return (
+    <div className="home">
+      <RecipeList allRecipes={allRecipes} />
+    </div>
+  );
 };
 
 export default Index;
 
 export const getStaticProps = async () => {
   const allRecipes = getAllRecipes(['slug', 'title']);
-  console.log({ allRecipes });
 
   return {
     props: { allRecipes },

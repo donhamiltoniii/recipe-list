@@ -1,0 +1,6 @@
+.recipe-list {
+  display: grid;
+
+  @respond-to ('sm') {
+  }
+}

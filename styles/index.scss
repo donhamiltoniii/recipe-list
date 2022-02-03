@@ -1,3 +1,7 @@
+@import './mixins.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Permanent+Marker&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,7 +9,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 ol,
