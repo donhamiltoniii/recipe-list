@@ -1,6 +1,19 @@
 .recipe-list {
   display: grid;
 
-  @respond-to ('sm') {
+  > * {
+    align-self: stretch;
+  }
+
+  @media (min-width: 600px) {
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__item {
+    > * {
+      height: 100%;
+      width: 100%;
+    }
   }
 }
