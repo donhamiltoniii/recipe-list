@@ -2,6 +2,7 @@
 import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import { Container } from '../../components/container/container';
+import { MarginBox } from '../../components/margin-box/margin-box';
 import { Recipe } from '../../components/recipe/recipe';
 
 // Utils
@@ -36,17 +37,19 @@ const RecipePage = ({
 
   return (
     <Container>
-      <Recipe>
-        <Recipe.Header
-          cookTime={cookTime}
-          description={description}
-          prepTime={prepTime}
-          servings={servings}
-          title={title}
-        />
-        <Recipe.Body content={content} />
-        <Recipe.Footer tags={tags} />
-      </Recipe>
+      <MarginBox bottom={5}>
+        <Recipe>
+          <Recipe.Header
+            cookTime={cookTime}
+            description={description}
+            prepTime={prepTime}
+            servings={servings}
+            title={title}
+          />
+          <Recipe.Body content={content} />
+          <Recipe.Footer tags={tags} />
+        </Recipe>
+      </MarginBox>
     </Container>
   );
 };

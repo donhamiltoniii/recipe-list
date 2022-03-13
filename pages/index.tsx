@@ -1,4 +1,5 @@
 // Components
+import { MarginBox } from '../components/margin-box/margin-box';
 import { RecipeList } from '../components/recipe/list/recipe-list';
 
 // Types
@@ -14,7 +15,9 @@ interface Props {
 const Index = ({ allRecipes }: Props) => {
   return (
     <div className="home">
-      <RecipeList allRecipes={allRecipes} />
+      <MarginBox bottom={5}>
+        <RecipeList allRecipes={allRecipes} />
+      </MarginBox>
     </div>
   );
 };
