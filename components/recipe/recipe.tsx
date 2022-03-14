@@ -1,5 +1,6 @@
 // Components
 import { ReactNode } from 'react';
+import { MarginBox } from '../margin-box/margin-box';
 
 // Style
 import styles from './recipe.module.scss';
@@ -34,6 +35,7 @@ const Footer = ({ tags }: FooterProps) => (
 type HeaderProps = {
   cookTime: string;
   description: string;
+  notes: string;
   prepTime: string;
   servings: string;
   title: string;
@@ -42,12 +44,13 @@ type HeaderProps = {
 const Header = ({
   cookTime,
   description,
+  notes,
   prepTime,
   servings,
   title,
 }: HeaderProps) => {
   return (
-    <div className={styles['recipe__header']}>
+    <header className={styles['recipe__header']}>
       <h2 className={styles['recipe__title']}>{title}</h2>
       <section className={styles['recipe__times']}>
         <small className={styles['recipe__prep-time']}>
@@ -61,7 +64,15 @@ const Header = ({
       <blockquote className={styles['recipe__description']}>
         {description}
       </blockquote>
-    </div>
+      {notes && (
+        <MarginBox bottom={1} top={1}>
+          <p className={styles['recipe__notes']}>
+            <strong>NOTES: </strong>
+            {notes}
+          </p>
+        </MarginBox>
+      )}
+    </header>
   );
 };
 

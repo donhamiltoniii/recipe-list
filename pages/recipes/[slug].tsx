@@ -13,6 +13,7 @@ type Props = {
   content: string;
   cookTime: string;
   description: string;
+  notes: string;
   prepTime: string;
   servings: string;
   slug: string;
@@ -24,6 +25,7 @@ const RecipePage = ({
   content,
   cookTime,
   description,
+  notes,
   prepTime,
   servings,
   slug,
@@ -42,6 +44,7 @@ const RecipePage = ({
           <Recipe.Header
             cookTime={cookTime}
             description={description}
+            notes={notes}
             prepTime={prepTime}
             servings={servings}
             title={title}
@@ -72,6 +75,7 @@ export async function getStaticProps({ params }: Params) {
     'tags',
     'slug',
     'content',
+    'notes',
   ]);
 
   const content = await markdownToHtml(recipe.content || '');
