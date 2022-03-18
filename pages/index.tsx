@@ -11,11 +11,13 @@ import { getAllRecipes } from '../lib/api';
 import { Recipe } from '../components/recipe/recipe';
 
 interface Props {
-  randomRecipe: RecipeProps;
   recipes: RecipeProps[];
 }
 
-const Index = ({ randomRecipe, recipes }: Props) => {
+const Index = ({ recipes }: Props) => {
+  const randomIndex = Math.floor(Math.random() * recipes.length);
+  const randomRecipe = recipes.slice(randomIndex, 1)[0];
+
   return (
     <div className="home">
       <MarginBox bottom={1}>
@@ -52,10 +54,8 @@ export default Index;
 
 export const getStaticProps = async () => {
   const recipes = getAllRecipes();
-  const randomIndex = Math.floor(Math.random() * recipes.length);
-  const randomRecipe = recipes.splice(randomIndex, 1)[0];
 
   return {
-    props: { randomRecipe, recipes },
+    props: { recipes },
   };
 };
