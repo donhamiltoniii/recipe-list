@@ -90,7 +90,7 @@ const Header = ({
 
 type RecipeProps = {
   children: ReactNode;
-  small: boolean;
+  small?: boolean;
 };
 
 export const Recipe = ({ children, small = false }: RecipeProps) => (
