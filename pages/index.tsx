@@ -18,7 +18,7 @@ interface Props {
 }
 
 const Index = ({ recipes }: Props) => {
-  const { height, width } = useWindowSize();
+  const { width } = useWindowSize();
   const randomIndex = Math.floor(Math.random() * recipes.length);
   const randomRecipe = recipes.slice(randomIndex, randomIndex + 1)[0];
 
