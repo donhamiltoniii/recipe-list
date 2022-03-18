@@ -1,4 +1,28 @@
 .recipe {
+  &--small {
+    .recipe {
+      &__description {
+        font-size: 0.8rem;
+      }
+
+      &__header {
+        flex-direction: row;
+
+        > * {
+          flex: 1 0 0;
+        }
+
+        > *:first-child {
+          margin-right: 1rem;
+        }
+      }
+
+      &__title {
+        font-size: 1rem;
+      }
+    }
+  }
+
   &__body {
     h3 {
       border-bottom: 1px solid black;
@@ -35,6 +59,8 @@
   }
 
   &__header {
+    display: flex;
+    flex-direction: column;
   }
 
   &__prep-time {

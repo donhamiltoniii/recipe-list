@@ -1,7 +1,10 @@
 // Components
-import Link from 'next/link';
+import { Anchor } from '../components/anchor/anchor';
 import { MarginBox } from '../components/margin-box/margin-box';
 import { RecipeList } from '../components/recipe/list/recipe-list';
+
+//Hooks
+import useWindowSize from '../hooks/use-window-size';
 
 // Types
 import { RecipeProps } from '../types/recipe';
@@ -15,6 +18,7 @@ interface Props {
 }
 
 const Index = ({ recipes }: Props) => {
+  const { height, width } = useWindowSize();
   const randomIndex = Math.floor(Math.random() * recipes.length);
   const randomRecipe = recipes.slice(randomIndex, randomIndex + 1)[0];
 
@@ -24,21 +28,19 @@ const Index = ({ recipes }: Props) => {
         <h2>Maybe Make This?</h2>
       </MarginBox>
       <MarginBox bottom={3}>
-        <Link href={`/recipes/${randomRecipe.slug}`}>
-          <a>
-            <Recipe>
-              <Recipe.Header
-                cookTime={randomRecipe.cookTime}
-                description={randomRecipe.description}
-                imgUrl={randomRecipe.imgUrl}
-                notes={randomRecipe.notes}
-                prepTime={randomRecipe.prepTime}
-                servings={randomRecipe.servings}
-                title={randomRecipe.title}
-              />
-            </Recipe>
-          </a>
-        </Link>
+        <Anchor href={`/recipes/${randomRecipe.slug}`}>
+          <Recipe small={!!width && width >= 600}>
+            <Recipe.Header
+              cookTime={randomRecipe.cookTime}
+              description={randomRecipe.description}
+              imgUrl={randomRecipe.imgUrl}
+              notes={randomRecipe.notes}
+              prepTime={randomRecipe.prepTime}
+              servings={randomRecipe.servings}
+              title={randomRecipe.title}
+            />
+          </Recipe>
+        </Anchor>
       </MarginBox>
       <MarginBox bottom={5}>
         <MarginBox bottom={1}>

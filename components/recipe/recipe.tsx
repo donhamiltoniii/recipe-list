@@ -5,6 +5,9 @@ import { MarginBox } from '../margin-box/margin-box';
 // Style
 import styles from './recipe.module.scss';
 
+// Utils
+import cls from 'classnames';
+
 type BodyProps = {
   content: string;
 };
@@ -56,37 +59,44 @@ const Header = ({
       <div>
         <img alt={title} src={imgUrl} style={{ width: '100%' }} />
       </div>
-      <h2 className={styles['recipe__title']}>{title}</h2>
-      <section className={styles['recipe__times']}>
-        <small className={styles['recipe__prep-time']}>
-          Prep time: {prepTime}
+      <div>
+        <h2 className={styles['recipe__title']}>{title}</h2>
+        <section className={styles['recipe__times']}>
+          <small className={styles['recipe__prep-time']}>
+            Prep time: {prepTime}
+          </small>
+          <small className={styles['recipe__cook-time']}>
+            Cook time: {cookTime}
+          </small>
+        </section>
+        <small className={styles['recipe__servings']}>
+          Servings: {servings}
         </small>
-        <small className={styles['recipe__cook-time']}>
-          Cook time: {cookTime}
-        </small>
-      </section>
-      <small className={styles['recipe__servings']}>Servings: {servings}</small>
-      <blockquote className={styles['recipe__description']}>
-        {description}
-      </blockquote>
-      {notes && (
-        <MarginBox bottom={1} top={1}>
-          <p className={styles['recipe__notes']}>
-            <strong>NOTES: </strong>
-            {notes}
-          </p>
-        </MarginBox>
-      )}
+        <blockquote className={styles['recipe__description']}>
+          {description}
+        </blockquote>
+        {notes && (
+          <MarginBox bottom={1} top={1}>
+            <p className={styles['recipe__notes']}>
+              <strong>NOTES: </strong>
+              {notes}
+            </p>
+          </MarginBox>
+        )}
+      </div>
     </header>
   );
 };
 
 type RecipeProps = {
   children: ReactNode;
+  small: boolean;
 };
 
-export const Recipe = ({ children }: RecipeProps) => (
-  <div className={styles['recipe']}>{children}</div>
+export const Recipe = ({ children, small = false }: RecipeProps) => (
+  <div className={cls(styles['recipe'], { [styles['recipe--small']]: small })}>
+    {children}
+  </div>
 );
 
 Recipe.Body = Body;
