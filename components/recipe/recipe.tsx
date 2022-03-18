@@ -1,5 +1,4 @@
 // Components
-import Image from 'next/image';
 import { ReactNode } from 'react';
 import { MarginBox } from '../margin-box/margin-box';
 
