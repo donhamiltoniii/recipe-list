@@ -9,7 +9,6 @@ import { RecipeProps } from '../types/recipe';
 // Utils
 import { getAllRecipes } from '../lib/api';
 import { Recipe } from '../components/recipe/recipe';
-import markdownToHtml from '../lib/markdownToHtml';
 
 interface Props {
   randomRecipe: RecipeProps;
