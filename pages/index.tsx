@@ -16,7 +16,7 @@ interface Props {
 
 const Index = ({ recipes }: Props) => {
   const randomIndex = Math.floor(Math.random() * recipes.length);
-  const randomRecipe = recipes.slice(randomIndex, 1)[0];
+  const randomRecipe = recipes.slice(randomIndex, randomIndex + 1)[0];
 
   return (
     <div className="home">
