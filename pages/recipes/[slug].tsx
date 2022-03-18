@@ -13,6 +13,7 @@ type Props = {
   content: string;
   cookTime: string;
   description: string;
+  imgUrl: string;
   notes: string;
   prepTime: string;
   servings: string;
@@ -25,6 +26,7 @@ const RecipePage = ({
   content,
   cookTime,
   description,
+  imgUrl,
   notes,
   prepTime,
   servings,
@@ -44,6 +46,7 @@ const RecipePage = ({
           <Recipe.Header
             cookTime={cookTime}
             description={description}
+            imgUrl={imgUrl}
             notes={notes}
             prepTime={prepTime}
             servings={servings}
@@ -66,17 +69,7 @@ type Params = {
 };
 
 export async function getStaticProps({ params }: Params) {
-  const recipe = getRecipeBySlug(params.slug, [
-    'title',
-    'prepTime',
-    'cookTime',
-    'servings',
-    'description',
-    'tags',
-    'slug',
-    'content',
-    'notes',
-  ]);
+  const recipe = getRecipeBySlug(params.slug);
 
   const content = await markdownToHtml(recipe.content || '');
 
@@ -89,7 +82,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const recipes = getAllRecipes(['slug']);
+  const recipes = getAllRecipes();
 
   return {
     paths: recipes.map((recipe) => {

@@ -1,4 +1,5 @@
 // Components
+import Image from 'next/image';
 import { ReactNode } from 'react';
 import { MarginBox } from '../margin-box/margin-box';
 
@@ -35,6 +36,7 @@ const Footer = ({ tags }: FooterProps) => (
 type HeaderProps = {
   cookTime: string;
   description: string;
+  imgUrl: string;
   notes: string;
   prepTime: string;
   servings: string;
@@ -44,6 +46,7 @@ type HeaderProps = {
 const Header = ({
   cookTime,
   description,
+  imgUrl,
   notes,
   prepTime,
   servings,
@@ -51,6 +54,9 @@ const Header = ({
 }: HeaderProps) => {
   return (
     <header className={styles['recipe__header']}>
+      <div>
+        <img alt={title} src={imgUrl} style={{ width: '100%' }} />
+      </div>
       <h2 className={styles['recipe__title']}>{title}</h2>
       <section className={styles['recipe__times']}>
         <small className={styles['recipe__prep-time']}>
