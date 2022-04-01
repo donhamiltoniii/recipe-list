@@ -7,6 +7,7 @@ import styles from './recipe.module.scss';
 
 // Utils
 import cls from 'classnames';
+import Link from 'next/link';
 
 type BodyProps = {
   content: string;
@@ -29,7 +30,9 @@ const Footer = ({ tags }: FooterProps) => (
     <h4 className={styles['recipe__tags-title']}>Tags</h4>
     <ul className={styles['recipe__tags-list']}>
       {tags.map((tag: string) => (
-        <li key={tag}>{tag}</li>
+        <li key={tag}>
+          <Link href={`/tags/${tag}`}>{tag}</Link>
+        </li>
       ))}
     </ul>
   </footer>
