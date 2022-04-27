@@ -29,10 +29,13 @@ const Index = ({ recipes }: Props) => {
     const recipe = recipes.slice(randomIndex, randomIndex + 1)[0];
     setRandomRecipe(recipe);
   }, []);
+
   useEffect(() => {
-    if (width && width >= 800) {
+    if (width && width >= 600) {
       setSmall(false);
-    } else setSmall(true);
+    } else {
+      setSmall(true);
+    }
   }, [width]);
 
   return (
