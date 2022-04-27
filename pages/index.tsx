@@ -4,6 +4,7 @@ import { MarginBox } from '../components/margin-box/margin-box';
 import { RecipeList } from '../components/recipe/list/recipe-list';
 
 //Hooks
+import { useEffect, useState } from 'react';
 import useWindowSize from '../hooks/use-window-size';
 
 // Types
@@ -18,9 +19,18 @@ interface Props {
 }
 
 const Index = ({ recipes }: Props) => {
+  const [small, setSmall] = useState<boolean>(false);
+
   const { width } = useWindowSize();
+
   const randomIndex = Math.floor(Math.random() * recipes.length);
   const randomRecipe = recipes.slice(randomIndex, randomIndex + 1)[0];
+
+  useEffect(() => {
+    if (width && width >= 600) {
+      setSmall(false);
+    } else setSmall(true);
+  }, [width]);
 
   return (
     <div className="home">
@@ -29,7 +39,7 @@ const Index = ({ recipes }: Props) => {
       </MarginBox>
       <MarginBox bottom={3}>
         <Anchor href={`/recipes/${randomRecipe.slug}`}>
-          <Recipe small={!!width && width >= 600}>
+          <Recipe small={small}>
             <Recipe.Header
               cookTime={randomRecipe.cookTime}
               description={randomRecipe.description}
