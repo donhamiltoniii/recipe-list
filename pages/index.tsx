@@ -19,15 +19,18 @@ interface Props {
 }
 
 const Index = ({ recipes }: Props) => {
+  const [randomRecipe, setRandomRecipe] = useState<RecipeProps>();
   const [small, setSmall] = useState<boolean>(false);
 
   const { width } = useWindowSize();
 
-  const randomIndex = Math.floor(Math.random() * recipes.length);
-  const randomRecipe = recipes.slice(randomIndex, randomIndex + 1)[0];
-
   useEffect(() => {
-    if (width && width >= 600) {
+    const randomIndex = Math.floor(Math.random() * recipes.length);
+    const recipe = recipes.slice(randomIndex, randomIndex + 1)[0];
+    setRandomRecipe(recipe);
+  }, []);
+  useEffect(() => {
+    if (width && width >= 800) {
       setSmall(false);
     } else setSmall(true);
   }, [width]);
@@ -38,19 +41,21 @@ const Index = ({ recipes }: Props) => {
         <h2>Maybe Make This?</h2>
       </MarginBox>
       <MarginBox bottom={3}>
-        <Anchor href={`/recipes/${randomRecipe.slug}`}>
-          <Recipe small={small}>
-            <Recipe.Header
-              cookTime={randomRecipe.cookTime}
-              description={randomRecipe.description}
-              imgUrl={randomRecipe.imgUrl}
-              notes={randomRecipe.notes}
-              prepTime={randomRecipe.prepTime}
-              servings={randomRecipe.servings}
-              title={randomRecipe.title}
-            />
-          </Recipe>
-        </Anchor>
+        {randomRecipe && (
+          <Anchor href={`/recipes/${randomRecipe.slug}`}>
+            <Recipe small={small}>
+              <Recipe.Header
+                cookTime={randomRecipe.cookTime}
+                description={randomRecipe.description}
+                imgUrl={randomRecipe.imgUrl}
+                notes={randomRecipe.notes}
+                prepTime={randomRecipe.prepTime}
+                servings={randomRecipe.servings}
+                title={randomRecipe.title}
+              />
+            </Recipe>
+          </Anchor>
+        )}
       </MarginBox>
       <MarginBox bottom={5}>
         <MarginBox bottom={1}>
