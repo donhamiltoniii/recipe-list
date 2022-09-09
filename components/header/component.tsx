@@ -1,8 +1,5 @@
-// Components
 import Link from 'next/link';
-
-// Styles
-import styles from './header.module.scss';
+import styles from './styles.module.scss';
 
 export const Header = () => {
   return (

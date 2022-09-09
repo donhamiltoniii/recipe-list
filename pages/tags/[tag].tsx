@@ -1,9 +1,6 @@
-// Components
-import { Container } from '../../components/container/container';
-import { MarginBox } from '../../components/margin-box/margin-box';
-
-// Hooks
 import { useRouter } from 'next/router';
+import { Container } from '../../components/container';
+import { MarginBox } from '../../components/margin-box';
 
 const TagPage = () => {
   const router = useRouter();

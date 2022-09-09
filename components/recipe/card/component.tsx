@@ -1,8 +1,5 @@
-// Components
 import Link from 'next/link';
-
-// Styles
-import styles from './recipe-card.module.scss';
+import styles from './styles.module.scss';
 
 interface Props {
   slug: string;

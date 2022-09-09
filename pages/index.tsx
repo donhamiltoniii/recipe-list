@@ -1,18 +1,11 @@
-// Components
-import { Anchor } from '../components/anchor/anchor';
-import { MarginBox } from '../components/margin-box/margin-box';
-import { RecipeList } from '../components/recipe/list/recipe-list';
-
-//Hooks
 import { useEffect, useState } from 'react';
+import { Anchor } from '../components/anchor';
+import { MarginBox } from '../components/margin-box';
+import { Recipe } from '../components/recipe';
+import { RecipeList } from '../components/recipe/list';
 import useWindowSize from '../hooks/use-window-size';
-
-// Types
-import { RecipeProps } from '../types/recipe';
-
-// Utils
 import { getAllRecipes } from '../lib/api';
-import { Recipe } from '../components/recipe/recipe';
+import { RecipeProps } from '../types/recipe';
 
 interface Props {
   recipes: RecipeProps[];

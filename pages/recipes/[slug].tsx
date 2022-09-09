@@ -1,12 +1,9 @@
-// Components
-import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
-import { Container } from '../../components/container/container';
-import { MarginBox } from '../../components/margin-box/margin-box';
-import { Recipe } from '../../components/recipe/recipe';
-
-// Utils
-import { getRecipeBySlug, getAllRecipes } from '../../lib/api';
+import { useRouter } from 'next/router';
+import { Container } from '../../components/container';
+import { MarginBox } from '../../components/margin-box';
+import { Recipe } from '../../components/recipe';
+import { getAllRecipes, getRecipeBySlug } from '../../lib/api';
 import markdownToHtml from '../../lib/markdownToHtml';
 
 type Props = {

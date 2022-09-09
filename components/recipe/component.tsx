@@ -1,13 +1,8 @@
-// Components
-import { ReactNode } from 'react';
-import { MarginBox } from '../margin-box/margin-box';
-
-// Style
-import styles from './recipe.module.scss';
-
-// Utils
 import cls from 'classnames';
 import Link from 'next/link';
+import { ReactNode } from 'react';
+import { MarginBox } from '../margin-box';
+import styles from './styles.module.scss';
 
 type BodyProps = {
   content: string;

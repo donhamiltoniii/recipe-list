@@ -1,11 +1,6 @@
-// Components
-import { RecipeCard } from '../card/recipe-card';
-
-// Types
 import { RecipeProps } from '../../../types/recipe';
-
-// Styles
-import styles from './recipe-list.module.scss';
+import { RecipeCard } from '../card';
+import styles from './styles.module.scss';
 
 interface RecipeListProps {
   allRecipes: RecipeProps[];
