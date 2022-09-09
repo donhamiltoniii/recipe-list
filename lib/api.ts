@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
-import { RecipeProps } from '../types/recipe';
+import { RecipeProps } from '../types';
 
 const recipesDirectory = join(process.cwd(), 'data', 'recipes');
 

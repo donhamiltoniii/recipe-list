@@ -5,7 +5,7 @@ import { Recipe } from '../components/recipe';
 import { RecipeList } from '../components/recipe/list';
 import useWindowSize from '../hooks/use-window-size';
 import { getAllRecipes } from '../lib/api';
-import { RecipeProps } from '../types/recipe';
+import { RecipeProps } from '../types';
 
 interface Props {
   recipes: RecipeProps[];
