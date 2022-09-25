@@ -5,8 +5,10 @@ import { RecipeProps } from '../types';
 
 const recipesDirectory = join(process.cwd(), 'data', 'recipes');
 
-export function getRecipeSlugs() {
-  return fs.readdirSync(recipesDirectory);
+export function getAllRecipes(): RecipeProps[] {
+  const slugs = getRecipeSlugs();
+  const recipes = slugs.map((slug) => getRecipeBySlug(slug));
+  return recipes;
 }
 
 export function getRecipeBySlug(slug: string): RecipeProps {
@@ -23,8 +25,12 @@ export function getRecipeBySlug(slug: string): RecipeProps {
   } as RecipeProps;
 }
 
-export function getAllRecipes(): RecipeProps[] {
-  const slugs = getRecipeSlugs();
-  const recipes = slugs.map((slug) => getRecipeBySlug(slug));
-  return recipes;
+export function getRecipeSlugs() {
+  return fs.readdirSync(recipesDirectory);
+}
+
+export function getRecipesByTag(tag: string) {
+  return getAllRecipes().filter((recipe: RecipeProps) =>
+    recipe.tags.includes(tag)
+  );
 }
