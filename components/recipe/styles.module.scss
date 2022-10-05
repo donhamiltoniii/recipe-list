@@ -82,6 +82,7 @@
   &__tags {
     &-list {
       display: flex;
+      flex-wrap: wrap;
 
       li {
         margin-right: 1rem;
