@@ -20,7 +20,7 @@ export function getRecipeBySlug(slug: string): RecipeProps {
   return {
     ...data,
     content,
-    imgUrl: data.imgUrl ?? 'https://www.fillmurray.com/300/200',
+    imgUrl: data.imgUrl ?? 'https://loremflickr.com/320/240/food',
     slug: realSlug,
   } as RecipeProps;
 }
