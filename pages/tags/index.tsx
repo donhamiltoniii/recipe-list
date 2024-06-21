@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { Container } from '../../components/container';
 import { MarginBox } from '../../components/margin-box';
 import { getAllRecipes } from '../../lib/api';

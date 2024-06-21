@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { Container } from '../../components/container';
 import { MarginBox } from '../../components/margin-box';
 import { RecipeCard } from '../../components/recipe/card';
