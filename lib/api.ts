@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { join } from 'path';
 import matter from 'gray-matter';
+import { join } from 'path';
 import { RecipeProps } from '../types';
 
 const recipesDirectory = join(process.cwd(), 'data', 'recipes');
@@ -20,7 +20,7 @@ export function getRecipeBySlug(slug: string): RecipeProps {
   return {
     ...data,
     content,
-    imgUrl: data.imgUrl ?? 'https://loremflickr.com/320/240/food',
+    imgUrl: data.imgUrl,
     slug: realSlug,
   } as RecipeProps;
 }

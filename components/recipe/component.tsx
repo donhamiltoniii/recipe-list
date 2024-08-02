@@ -54,9 +54,11 @@ const Header = ({
 }: HeaderProps) => {
   return (
     <header className={styles['recipe__header']}>
-      <div className={styles['recipe__img']}>
-        <img alt={title} src={imgUrl} style={{ width: '100%' }} />
-      </div>
+      {imgUrl ? (
+        <div className={styles['recipe__img']}>
+          <img alt={title} src={imgUrl} style={{ width: '100%' }} />
+        </div>
+      ) : null}
       <div>
         <h2 className={styles['recipe__title']}>{title}</h2>
         <section className={styles['recipe__times']}>
