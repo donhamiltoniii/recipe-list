@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "generate-recipe": "plop",
+    "plop": "plop",
     "start": "next start",
     "typecheck": "tsc"
   },
