@@ -1,6 +1,7 @@
 import cls from 'classnames';
 import Link from 'next/link';
 import { ReactNode } from 'react';
+import { decodeHtml } from '../../lib/decodeHtml';
 import { MarginBox } from '../margin-box';
 import styles from './styles.module.scss';
 
@@ -60,7 +61,7 @@ const Header = ({
         </div>
       ) : null}
       <div>
-        <h2 className={styles['recipe__title']}>{title}</h2>
+        <h2 className={styles['recipe__title']}>{decodeHtml(title)}</h2>
         <section className={styles['recipe__times']}>
           <small className={styles['recipe__prep-time']}>
             Prep time: {prepTime}
@@ -73,7 +74,7 @@ const Header = ({
           Servings: {servings}
         </small>
         <blockquote className={styles['recipe__description']}>
-          {description}
+          {decodeHtml(description)}
         </blockquote>
         {notes && (
           <MarginBox bottom={1} top={1}>
