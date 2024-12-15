@@ -20,7 +20,6 @@ export function getRecipeBySlug(slug: string): RecipeProps {
   return {
     ...data,
     content,
-    imgUrl: data.imgUrl,
     slug: realSlug,
   } as RecipeProps;
 }
