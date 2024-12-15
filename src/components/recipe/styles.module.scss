@@ -1,32 +1,4 @@
 .recipe {
-  &--small {
-    .recipe {
-      &__description {
-        font-size: 0.8rem;
-      }
-
-      &__header {
-        flex-direction: row;
-
-        > * {
-          flex: 1 0 0;
-        }
-
-        > *:first-child {
-          margin-right: 1rem;
-        }
-      }
-
-      &__img {
-        margin-bottom: 0;
-      }
-
-      &__title {
-        font-size: 1rem;
-      }
-    }
-  }
-
   &__body {
     h3 {
       border-bottom: 1px solid black;
@@ -75,15 +47,35 @@
     border-left: 5px solid black;
     margin: 1rem 0;
     padding: 0.5rem 0 0.5rem 0.5rem;
+
+    @media screen and (max-width: 600px) {
+      font-size: 0.8rem;
+    }
   }
 
   &__header {
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 600px) {
+      flex-direction: row;
+
+      > * {
+        flex: 1 0 0;
+      }
+
+      > *:first-child {
+        margin-right: 1rem;
+      }
+    }
   }
 
   &__img {
     margin-bottom: 1rem;
+
+    @media screen and (max-width: 600px) {
+      margin-bottom: 0;
+    }
   }
 
   &__prep-time {
@@ -125,5 +117,9 @@
     font-size: 3rem;
     line-height: 1;
     margin-bottom: 1rem;
+
+    @media screen and (max-width: 600px) {
+      font-size: 1rem;
+    }
   }
 }
