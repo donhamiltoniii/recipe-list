@@ -10,13 +10,16 @@ const permanentMarker = Permanent_Marker({
   weight: '400',
 });
 
-const className = classNames(styles.header, permanentMarker.className);
+const className = classNames(
+  styles['header__title'],
+  permanentMarker.className
+);
 
 export const Header = () => {
   return (
-    <header className={className}>
+    <header className={styles['header']}>
       <Anchor href="/">
-        <h1 className={styles.header__title}>Dondon&apos;s Recipes</h1>
+        <h1 className={className}>Dondon&apos;s Recipes</h1>
       </Anchor>
       <Nav />
     </header>
