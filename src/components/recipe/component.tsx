@@ -1,9 +1,15 @@
 import cls from 'classnames';
+import { Permanent_Marker } from 'next/font/google';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import { decodeHtml } from '../../lib/decodeHtml';
 import { MarginBox } from '../margin-box';
 import styles from './styles.module.scss';
+
+const permanentMarker = Permanent_Marker({
+  subsets: ['latin'],
+  weight: '400',
+});
 
 type BodyProps = {
   content: string;
@@ -54,14 +60,16 @@ const Header = ({
   title,
 }: HeaderProps) => {
   return (
-    <header className={styles['recipe__header']}>
+    <header className={cls(styles['recipe__header'])}>
       {imgUrl ? (
         <div className={styles['recipe__img']}>
           <img alt={title} src={imgUrl} style={{ width: '100%' }} />
         </div>
       ) : null}
       <div>
-        <h2 className={styles['recipe__title']}>{decodeHtml(title)}</h2>
+        <h2 className={cls(styles['recipe__title'], permanentMarker.className)}>
+          {decodeHtml(title)}
+        </h2>
         <section className={styles['recipe__times']}>
           <small className={styles['recipe__prep-time']}>
             Prep time: {prepTime}
@@ -91,13 +99,10 @@ const Header = ({
 
 type RecipeProps = {
   children: ReactNode;
-  small?: boolean;
 };
 
-export const Recipe = ({ children, small = false }: RecipeProps) => (
-  <div className={cls(styles['recipe'], { [styles['recipe--small']]: small })}>
-    {children}
-  </div>
+export const Recipe = ({ children }: RecipeProps) => (
+  <div className={cls(styles['recipe'])}>{children}</div>
 );
 
 Recipe.Body = Body;

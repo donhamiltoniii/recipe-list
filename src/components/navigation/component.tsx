@@ -1,10 +1,10 @@
-import Link from 'next/link';
+import { Anchor } from '../anchor';
 
 export const Nav = () => (
   <nav>
     <ul>
       <li>
-        <Link href="/tags">Tags</Link>
+        <Anchor href="/tags">Tags</Anchor>
       </li>
     </ul>
   </nav>
